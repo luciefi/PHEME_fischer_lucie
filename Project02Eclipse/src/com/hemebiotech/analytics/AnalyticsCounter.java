@@ -1,23 +1,21 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class AnalyticsCounter {
 
     public static void main(String args[]) throws Exception {
 
         // Read symptoms from file
-        ISymptomReader symptomDataCounter = new SymptomDataFileReader("./Project02Eclipse/symptoms.txt");
-        List<String> symptomsList = symptomDataCounter.getSymptoms();
+        ISymptomReader symptomDataReader = new SymptomDataFileReader("./Project02Eclipse/symptoms.txt");
+        List<String> symptomsList = symptomDataReader.getSymptoms();
 
         // Count and sort symptoms
+        ISymptomCounter symptomDataCounter = new SymptomListTreeCounter(symptomsList);
+        Map<String, Integer> symptomsCount = symptomDataCounter.getSymptomsCount();
 
         // Write counted symptoms to output file
-
 
         /*
         BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
