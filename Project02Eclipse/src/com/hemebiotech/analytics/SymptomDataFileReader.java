@@ -30,7 +30,7 @@ public class SymptomDataFileReader implements ISymptomReader {
      */
     @Override
     public List<String> getSymptoms() {
-        ArrayList<String> symptomsList = new ArrayList<String>();
+        ArrayList<String> symptomsList = new ArrayList<>();
 
         if (filepath == null) {
             return symptomsList;
