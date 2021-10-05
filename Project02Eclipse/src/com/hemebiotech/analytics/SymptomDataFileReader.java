@@ -7,37 +7,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ * Implementation of ISymptomWriter that reads symptoms from a file.
  */
 public class SymptomDataFileReader implements ISymptomReader {
 
-    private String filepath;
+    private String filePath;
 
     /**
      * SymptomDataFileReader constructor
      *
-     * @param filepath a full or partial path to file with symptom strings in it, one per line
+     * @param filePath a full or partial path to file with symptom strings in it, one per line.
      */
-    public SymptomDataFileReader(String filepath) {
-        this.filepath = filepath;
+    public SymptomDataFileReader(String filePath) {
+        this.filePath = filePath;
     }
 
-
     /**
-     * Reads data from symptoms file; if no data is available, return an empty List
+     * Reads data from symptoms file; if no data is available, returns an empty List.
      *
-     * @return an ArrayList of all Symptoms obtained from a data source, duplicates are possible/probable
+     * @return an ArrayList of all Symptoms obtained from a data source, duplicates are possible/probable.
      */
     @Override
     public List<String> getSymptoms() {
         ArrayList<String> symptomsList = new ArrayList<>();
 
-        if (filepath == null) {
+        if (filePath == null) {
             return symptomsList;
         }
 
         try (BufferedReader reader =
-                     new BufferedReader(new FileReader(filepath))) {
+                     new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine();
 
             while (line != null) {

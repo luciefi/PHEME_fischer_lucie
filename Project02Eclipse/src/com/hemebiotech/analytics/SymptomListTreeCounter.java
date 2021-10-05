@@ -3,6 +3,10 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.TreeMap;
 
+/**
+ * Implementation of ISymptomReader that counts symptom occurrences
+ * and store the results in a TreeMap.
+ */
 public class SymptomListTreeCounter implements ISymptomCounter {
 
     private List<String> symptomsList;
@@ -10,16 +14,16 @@ public class SymptomListTreeCounter implements ISymptomCounter {
     /**
      * SymptomListCounter constructor
      *
-     * @param symptomsList a list with symptom strings in it
+     * @param symptomsList a list with symptom strings in it.
      */
     public SymptomListTreeCounter(List<String> symptomsList) {
         this.symptomsList = symptomsList;
     }
 
     /**
-     * Count data from symptoms list;
+     * Counts data from symptoms list.
      *
-     * @return a TreeMap with the symptom as key and the count associated to the symptom as value
+     * @return a TreeMap with the symptom as key and the count associated to the symptom as value.
      */
     @Override
     public TreeMap<String, Integer> getSymptomsCount() {
