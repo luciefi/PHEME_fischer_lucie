@@ -30,7 +30,7 @@ public class SymptomOutputFileWriter implements ISymptomWriter {
     @Override
     public void writeSymptoms() {
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))
         ) {
             for (Map.Entry<String, Integer> entry : symptomsCount.entrySet()) {
                 writer.write(entry.getKey() + ": " + entry.getValue() + "\n");

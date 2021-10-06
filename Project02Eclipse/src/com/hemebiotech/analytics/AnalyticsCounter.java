@@ -11,15 +11,15 @@ public class AnalyticsCounter {
     public static void main(String args[]) throws Exception {
 
         // Read symptoms from file
-        ISymptomReader symptomDataReader = new SymptomDataFileReader("./Project02Eclipse/symptoms.txt");
+        ISymptomReader symptomDataReader =Injector.provideSymptomReader();
         List<String> symptomsList = symptomDataReader.getSymptoms();
 
         // Count and sort symptoms
-        ISymptomCounter symptomDataCounter = new SymptomListTreeCounter(symptomsList);
+        ISymptomCounter symptomDataCounter = Injector.provideSymptomCounter(symptomsList);
         Map<String, Integer> symptomsCount = symptomDataCounter.getSymptomsCount();
 
         // Write counted symptoms to output file
-        ISymptomWriter symptomDataWriter = new SymptomOutputFileWriter(symptomsCount, "./Project02Eclipse/result.txt");
+        ISymptomWriter symptomDataWriter = Injector.provideSymptomWriter(symptomsCount);
         symptomDataWriter.writeSymptoms();
 
     }
