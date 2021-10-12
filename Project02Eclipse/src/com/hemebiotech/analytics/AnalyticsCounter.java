@@ -11,7 +11,7 @@ public class AnalyticsCounter {
     public static void main(String args[]) throws Exception {
 
         // Read symptoms from file
-        ISymptomReader symptomDataReader =Injector.provideSymptomReader();
+        ISymptomReader symptomDataReader = Injector.provideSymptomReader();
         List<String> symptomsList = symptomDataReader.getSymptoms();
 
         // Count and sort symptoms
