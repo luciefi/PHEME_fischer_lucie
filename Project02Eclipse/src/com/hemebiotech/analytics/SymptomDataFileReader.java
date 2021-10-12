@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class SymptomDataFileReader implements ISymptomReader {
 
-    private String filePath;
+    private final String filePath;
 
     /**
      * SymptomDataFileReader constructor
